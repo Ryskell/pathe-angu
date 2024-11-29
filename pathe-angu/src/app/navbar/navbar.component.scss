@@ -3,15 +3,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #3c57a2;
-  /* Couleur de fond */
+  background-color: #fdd835;
   color: white;
 }
 
 .nav-links a {
   margin-right: 20px;
   text-decoration: none;
-  color: white;
+  color: grey;
   font-weight: bold;
 }
 
@@ -30,8 +29,7 @@
 
 button {
   padding: 5px 10px;
-  background-color: #f44336;
-  /* Rouge pour logout */
+  background-color: darkgoldenrod;
   color: white;
   border: none;
   border-radius: 5px;
