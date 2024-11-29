@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
 })
 export class LoginComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   onLogin(form: NgForm) {
     if (form.valid) {
@@ -15,12 +16,16 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe({
         next: (users) => {
           if (users.length > 0) {
+            const user = users[0];
+            localStorage.setItem('userId', user.id!); // Stocke l'ID utilisateur
+            localStorage.setItem('pseudo', user.pseudo); // Stocke le pseudo
             alert('Connexion réussie');
+            this.router.navigate(['/home']);
           } else {
             alert('Email ou mot de passe incorrect');
           }
         },
-        error: () => alert('Erreur lors de la connexion')
+        error: () => alert('Erreur lors de la connexion'),
       });
     }
   }

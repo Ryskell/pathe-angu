@@ -1,64 +1,10 @@
 {
-  "films": [
-    {
-      "id": 1,
-      "title": "Inception",
-      "director": "Christopher Nolan",
-      "genre": "Science Fiction",
-      "seances": [
-        1,
-        2
-      ]
-    },
-    {
-      "id": 2,
-      "title": "The Godfather",
-      "director": "Francis Ford Coppola",
-      "genre": "Crime",
-      "seances": [
-        3
-      ]
-    }
-  ],
-  "seances": [
-    {
-      "id": 1,
-      "filmId": 1,
-      "dateTime": "2024-12-01T14:00:00",
-      "totalSeats": 50
-    },
-    {
-      "id": 2,
-      "filmId": 1,
-      "dateTime": "2024-12-01T20:00:00",
-      "totalSeats": 50
-    },
-    {
-      "id": 3,
-      "filmId": 2,
-      "dateTime": "2024-12-02T18:00:00",
-      "totalSeats": 50
-    }
-  ],
-  "reservedSeats": [
-    {
-      "id": 1,
-      "seanceId": 1,
-      "seatNumber": "A1",
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "seanceId": 1,
-      "seatNumber": "A2",
-      "userId": 2
-    }
-  ],
   "users": [
     {
-      "id": "e233",
-      "email": "test@mail.com",
-      "password": "test"
+      "id": "90f9",
+      "email": "test",
+      "password": "test",
+      "pseudo": "test"
     }
   ]
 }

@@ -3,9 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 interface User {
-  id?: number;
+  id?: string;
   email: string;
   password: string;
+  pseudo: string;
 }
 
 @Injectable({
@@ -14,7 +15,7 @@ interface User {
 export class AuthService {
   private baseUrl = 'http://localhost:3000/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   register(user: User): Observable<User> {
     return this.http.post<User>(this.baseUrl, user);
