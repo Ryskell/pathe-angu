@@ -5,6 +5,12 @@
       "email": "test",
       "password": "test",
       "pseudo": "test"
+    },
+    {
+      "id": "c152",
+      "email": "aa",
+      "password": "aa",
+      "pseudo": "aa"
     }
   ]
 }

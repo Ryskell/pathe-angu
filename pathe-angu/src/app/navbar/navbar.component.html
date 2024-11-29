@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <div class="nav-links">
+    <a routerLink="/home">Accueil</a>
+    <a routerLink="/movies">Les Films</a>
+    <a routerLink="/reservations">Mes Réservations</a>
+  </div>
+  <div class="user-info">
+    <span *ngIf="pseudo">Bonjour, {{ pseudo }}</span>
+    <button (click)="logout()">Logout</button>
+  </div>
+</nav>
