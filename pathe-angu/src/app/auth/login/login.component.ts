@@ -17,8 +17,8 @@ export class LoginComponent {
         next: (users) => {
           if (users.length > 0) {
             const user = users[0];
-            localStorage.setItem('userId', user.id!); // Stocke l'ID utilisateur
-            localStorage.setItem('pseudo', user.pseudo); // Stocke le pseudo
+            localStorage.setItem('userId', user.id.toString());
+            localStorage.setItem('pseudo', user.pseudo);
             alert('Connexion réussie');
             this.router.navigate(['/home']);
           } else {
