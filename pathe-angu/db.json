@@ -13,54 +13,91 @@
       "pseudo": "aa"
     }
   ],
-  
-    "movies": [
-     {
-        "id": 1,
-        "title": "Interstellar",
-        "poster": "/assets/img/poster_interstellar.jpg",
-        "sessions": [
-          { "date": "2024-12-01", "time": "18:00", "seatsAvailable": 20 },
-          { "date": "2024-12-02", "time": "20:30", "seatsAvailable": 15 }
-        ]
-      },
-      {
-        "id": 2,
-        "title": "Batman",
-        "poster": "/assets/img/poster_DarkKnight.jpg",
-        "sessions": [
-          { "date": "2024-12-01", "time": "19:00", "seatsAvailable": 30 },
-          { "date": "2024-12-03", "time": "21:00", "seatsAvailable": 25 }
-        ]
-      },
-      {
-        "id": 3,
-        "title": "Les Ch'tis",
-        "poster": "/assets/img/poster_ch'tis.jpg",
-        "sessions": [
-          { "date": "2024-12-02", "time": "17:30", "seatsAvailable": 40 },
-          { "date": "2024-12-04", "time": "19:00", "seatsAvailable": 35 }
-        ]
-      },
-      {
-        "id": 4,
-        "title": "Les Trolls",
-        "poster": "/assets/img/poster_trolls2.jpg",
-        "sessions": [
-          { "date": "2024-12-01", "time": "16:00", "seatsAvailable": 10 },
-          { "date": "2024-12-05", "time": "20:00", "seatsAvailable": 8 }
-        ]
-      },
-      {
-        "id": 5,
-        "title": "Vaiana",
-        "poster": "/assets/img/poster_vaiana2.jpg",
-        "sessions": [
-          { "date": "2024-12-03", "time": "18:30", "seatsAvailable": 50 },
-          { "date": "2024-12-06", "time": "21:30", "seatsAvailable": 45 }
-        ]
-      }
-    ]
-  
-  
+  "movies": [
+    {
+      "id": 1,
+      "title": "Interstellar",
+      "poster": "/assets/img/poster_interstellar.jpg",
+      "sessions": [
+        {
+          "date": "2024-12-01",
+          "time": "18:00",
+          "seatsAvailable": 20
+        },
+        {
+          "date": "2024-12-02",
+          "time": "20:30",
+          "seatsAvailable": 15
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Batman",
+      "poster": "/assets/img/poster_DarkKnight.jpg",
+      "sessions": [
+        {
+          "date": "2024-12-01",
+          "time": "19:00",
+          "seatsAvailable": 30
+        },
+        {
+          "date": "2024-12-03",
+          "time": "21:00",
+          "seatsAvailable": 25
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Les Ch'tis",
+      "poster": "/assets/img/poster_ch'tis.jpg",
+      "sessions": [
+        {
+          "date": "2024-12-02",
+          "time": "17:30",
+          "seatsAvailable": 40
+        },
+        {
+          "date": "2024-12-04",
+          "time": "19:00",
+          "seatsAvailable": 35
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Les Trolls",
+      "poster": "/assets/img/poster_trolls2.jpg",
+      "sessions": [
+        {
+          "date": "2024-12-01",
+          "time": "16:00",
+          "seatsAvailable": 10
+        },
+        {
+          "date": "2024-12-05",
+          "time": "20:00",
+          "seatsAvailable": 8
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Vaiana",
+      "poster": "/assets/img/poster_vaiana2.jpg",
+      "sessions": [
+        {
+          "date": "2024-12-03",
+          "time": "18:30",
+          "seatsAvailable": 50
+        },
+        {
+          "date": "2024-12-06",
+          "time": "21:30",
+          "seatsAvailable": 45
+        }
+      ]
+    }
+  ]
 }
