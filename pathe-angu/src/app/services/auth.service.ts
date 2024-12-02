@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 interface User {
-  id?: string;
+  id: number;
   email: string;
   password: string;
   pseudo: string;
@@ -18,7 +18,8 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   register(user: User): Observable<User> {
-    return this.http.post<User>(this.baseUrl, user);
+    const newUser = { ...user, id: Math.floor(Math.random() * 1000) };
+    return this.http.post<User>(this.baseUrl, newUser);
   }
 
   login(email: string, password: string): Observable<User[]> {
