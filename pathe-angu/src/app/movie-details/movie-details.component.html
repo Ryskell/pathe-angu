@@ -1,0 +1,13 @@
+<div *ngIf="movie" class="movie-details">
+  <h2>{{ movie.title }}</h2>
+  <img [src]="movie.poster" [alt]="movie.title" class="movie-poster" />
+  <h3>Séances disponibles</h3>
+  <ul>
+    <li *ngFor="let session of movie.sessions">
+      <p>Date : {{ session.date }}</p>
+      <p>Heure : {{ session.time }}</p>
+      <p>Places disponibles : {{ session.seatsAvailable }}</p>
+      <button >Réserver</button>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,27 @@
+.movies-page {
+    text-align: center;
+  }
+  
+  .movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .movie-card {
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .movie-poster {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.2s;
+  }
+  
+  .movie-poster:hover {
+    transform: scale(1.1);
+  }
+  
