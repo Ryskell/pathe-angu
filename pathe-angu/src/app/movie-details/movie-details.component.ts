@@ -16,12 +16,25 @@ export class MovieDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const movieId = Number(this.route.snapshot.paramMap.get('id'));
+    const movieId = Number(this.route.snapshot.paramMap.get('id')); // Convertit en nombre
+    console.log('Movie ID:', movieId);
+  
     this.movieService.getMovies().subscribe({
       next: (movies) => {
-        this.movie = movies.find((m) => m.id === movieId) || null;
+        console.log('Movies:', movies);
+        this.movie = movies.find((m) => m.id === movieId) || null; // Comparaison correcte
+        if (!this.movie) {
+          console.warn(`Movie with ID ${movieId} not found`);
+        } else {
+          console.log('Movie found:', this.movie);
+        }
       },
-      error: (err) => console.error('Erreur lors de la récupération du film', err)
+      error: (err) => {
+        console.error('Erreur lors de la récupération des films:', err);
+      }
     });
   }
+  
+  
+  
 }
