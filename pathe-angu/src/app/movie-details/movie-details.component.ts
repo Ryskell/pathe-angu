@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Movie, MovieService } from '../services/movie.service';
+import { Session, SessionService } from '../services/session.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -9,32 +10,37 @@ import { Movie, MovieService } from '../services/movie.service';
 })
 export class MovieDetailsComponent implements OnInit {
   movie: Movie | null = null;
+  sessions: Session[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private movieService: MovieService
-  ) {}
+    private movieService: MovieService,
+    private sessionService: SessionService
+  ) { }
 
   ngOnInit(): void {
-    const movieId = Number(this.route.snapshot.paramMap.get('id')); // Convertit en nombre
-    console.log('Movie ID:', movieId);
-  
-    this.movieService.getMovies().subscribe({
-      next: (movies) => {
-        console.log('Movies:', movies);
-        this.movie = movies.find((m) => m.id === movieId) || null; // Comparaison correcte
-        if (!this.movie) {
-          console.warn(`Movie with ID ${movieId} not found`);
-        } else {
-          console.log('Movie found:', this.movie);
-        }
+    const movieId = Number(this.route.snapshot.paramMap.get('id'));
+    if (!movieId) {
+      console.error('Invalid movie ID');
+      return;
+    }
+
+    this.movieService.getMovieById(movieId).subscribe({
+      next: (movie) => {
+        this.movie = movie;
+
+        this.sessionService.getSessionsByMovieId(movieId).subscribe({
+          next: (sessions) => {
+            this.sessions = sessions;
+          },
+          error: (err) => {
+            console.error('Erreur lors de la récupération des sessions:', err);
+          }
+        });
       },
       error: (err) => {
-        console.error('Erreur lors de la récupération des films:', err);
+        console.error('Erreur lors de la récupération du film:', err);
       }
     });
   }
-  
-  
-  
 }

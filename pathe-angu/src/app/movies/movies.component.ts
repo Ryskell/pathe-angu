@@ -10,7 +10,7 @@ import { Movie, MovieService } from '../services/movie.service';
 export class MoviesComponent implements OnInit {
   movies: Movie[] = [];
 
-  constructor(private movieService: MovieService, private router: Router) {}
+  constructor(private movieService: MovieService, private router: Router) { }
 
   ngOnInit(): void {
     this.movieService.getMovies().subscribe({
@@ -20,6 +20,6 @@ export class MoviesComponent implements OnInit {
   }
 
   viewDetails(movieId: number): void {
-    this.router.navigate(['/movies', movieId]); // Navigue vers la page de détails
+    this.router.navigate(['/movies', movieId]);
   }
 }

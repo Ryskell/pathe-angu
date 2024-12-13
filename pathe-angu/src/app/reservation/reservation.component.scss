@@ -1,0 +1,76 @@
+.cinema-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cinema {
+  display: grid;
+  gap: 10px;
+  border: 2px solid #333;
+  padding: 10px;
+  position: relative;
+}
+
+.screen {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 10px;
+  height: 40px;
+}
+
+.row {
+  display: flex;
+}
+
+.seat-container {
+  flex: 1;
+  padding: 5px;
+}
+
+.seat {
+  position: relative;
+  width: 100%;
+  padding-top: 60%;
+  background-color: #3498db;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.seat.selected {
+  background-color: #e74c3c;
+}
+
+.seat.reserved {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.seat-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: bold;
+}
+
+.exit-left,
+.exit-right {
+  position: absolute;
+  width: 30px;
+  height: 100%;
+  background-color: #ccc;
+  top: 0;
+}
+
+.exit-left {
+  left: 0;
+}
+
+.exit-right {
+  right: 0;
+}

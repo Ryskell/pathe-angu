@@ -21,7 +21,6 @@ export class NavbarComponent implements OnInit {
     localStorage.removeItem('pseudo');
     localStorage.removeItem('userId'); // Si d'autres données sont à supprimer, ajoute-les ici
     alert('Déconnexion réussie');
-    // Rediriger vers la page de connexion
     this.router.navigate(['/login']);
   }
 }

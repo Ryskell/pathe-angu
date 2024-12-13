@@ -1,0 +1,23 @@
+<div>
+  <h1 class="cinema-title">Sélectionnez vos places pour la séance de cinéma</h1>
+
+  <!-- Affichez la grille de places -->
+  <div class="cinema">
+    <div class="screen">Écran</div>
+    <div *ngFor="let row of rows; let rowIndex = index" class="row">
+      <div *ngFor="let col of cols; let colIndex = index" class="seat-container">
+        <div class="seat" [class.selected]="isSeatSelected(rowIndex, colIndex)"
+          [class.reserved]="isSeatReserved(rowIndex, colIndex)" (click)="toggleSeatSelection(rowIndex, colIndex)">
+          <span class="seat-number">{{ getSeatNumber(rowIndex, colIndex) }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="exit exit-left"></div>
+    <div class="exit exit-right"></div>
+  </div>
+  <br>
+
+  <button (click)="cancel()">Retour au choix des films</button>
+  &nbsp;
+  <button (click)="confirmReservation()">Confirmer la réservation</button>
+</div>

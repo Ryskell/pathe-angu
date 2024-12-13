@@ -10,20 +10,23 @@ const middlewares = jsonServer.defaults();
 server.use(jsonServer.bodyParser);
 
 server.use((req, res, next) => {
-  if (req.method === 'POST') {
+  if (req.method === 'POST' && Array.isArray(req.body)) {
     const db = JSON.parse(fs.readFileSync(path.join(__dirname, 'db.json'), 'utf-8'));
+    const resourceName = req.path.replace('/', '');
 
-    if (!db[req.path.replace('/', '')]) {
-      return next();
+    if (db[resourceName]) {
+      req.body.forEach(item => {
+        delete item.id; // Supprimer l'ID si présent
+        const nextId = db[resourceName].length > 0
+          ? Math.max(...db[resourceName].map(r => r.id)) + 1
+          : 1;
+        item.id = nextId; // Assigner l'ID auto-incrémenté
+      });
     }
-
-    const resource = db[req.path.replace('/', '')];
-    const nextId = resource.length > 0 ? Math.max(...resource.map((r) => r.id)) + 1 : 1;
-
-    req.body.id = nextId; // Ajoute l'ID auto-incrémenté
   }
   next();
 });
+
 
 server.use(middlewares);
 server.use(router);
