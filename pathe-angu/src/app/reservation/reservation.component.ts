@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ReservationService, Reservation } from '../services/reservation.service';
+import { concat, of } from 'rxjs';
+import { concatMap } from 'rxjs/operators';
 
 interface Seat {
   row: number;
@@ -78,28 +80,36 @@ export class ReservationComponent implements OnInit {
       return;
     }
 
-    // Pour chaque siège sélectionné, envoyer une requête d'ajout de réservation
+    // Préparer les données pour chaque siège sélectionné
     const selectedSeatData = this.selectedSeats.map((seat: Seat) => ({
-      userId: Number(userId), // Utilise l'ID de l'utilisateur
-      sessionId: this.sessionId, // Utilise l'ID de la session
-      seatNumber: this.getSeatNumber(seat.row, seat.col), // Calcule le numéro du siège
+      userId: Number(userId),
+      sessionId: this.sessionId,
+      seatNumber: this.getSeatNumber(seat.row, seat.col),
     }));
 
-    // Pour chaque siège, appeler addReservation de manière indépendante
-    selectedSeatData.forEach(seat => {
-      this.reservationService.addReservation(seat).subscribe(
-        (response) => {
-          console.log('Réservation pour siège ' + seat.seatNumber + ' confirmée:', response);
-        },
-        (error) => {
-          console.error('Erreur lors de la réservation pour le siège ' + seat.seatNumber, error);
-        }
+    // Chaîner les requêtes d'ajout de réservation et de mise à jour des places
+    let observableChain = of(null); // Initialisé avec un Observable<null>
+
+    selectedSeatData.forEach((seat) => {
+      observableChain = observableChain.pipe(
+        concatMap(() =>
+          this.reservationService.addReservation(seat).pipe(
+            concatMap(() =>
+              this.reservationService.updateSeatsAvailable(this.sessionId)
+            )
+          )
+        )
       );
     });
 
-    // Rediriger l'utilisateur vers la page d'accueil une fois toutes les réservations envoyées
-    this.router.navigate(['/home']);
+    // Exécuter la chaîne d'observables
+    observableChain.subscribe({
+      next: () => console.log('Toutes les réservations et mises à jour sont terminées.'),
+      error: (err) => console.error('Une erreur est survenue:', err),
+      complete: () => {
+        console.log('Redirection vers la page d\'accueil.');
+        this.router.navigate(['/home']);
+      }
+    });
   }
-
-
 }

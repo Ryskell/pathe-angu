@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 
 export interface Reservation {
   id?: number; // Identifiant de la réservation
@@ -17,40 +17,40 @@ export class ReservationService {
 
   constructor(private http: HttpClient) { }
 
-  /**
-   * Récupère les réservations pour une session donnée
-   * @param sessionId Identifiant de la session
-   * @returns Observable des réservations
-   */
+  //Récupère les réservations pour une session donnée
   getReservationsBySession(sessionId: number): Observable<Reservation[]> {
     return this.http.get<Reservation[]>(`${this.baseUrl}/sessions/${sessionId}/reservations`);
   }
-
 
   //  Ajoute de nouvelles réservations
   addReservation(reservation: Reservation): Observable<Reservation> {
     return this.http.post<Reservation>(`${this.baseUrl}/reservations`, reservation);
   }
 
-
-
-
-  /**
-   * Supprime une réservation par son ID
-   * @param reservationId Identifiant de la réservation
-   * @returns Observable du résultat de l'opération
-   */
-  deleteReservation(reservationId: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/reservations/${reservationId}`);
+  //Récupère les réservations pour un utilisateur donnée
+  getReservationsByUser(userId: number): Observable<Reservation[]> {
+    return this.http.get<Reservation[]>(`${this.baseUrl}/reservations?userId=${userId}`);
   }
 
-  /**
-   * Met à jour une réservation existante
-   * @param reservationId Identifiant de la réservation
-   * @param updatedReservation Données mises à jour
-   * @returns Observable du résultat de l'opération
-   */
-  updateReservation(reservationId: number, updatedReservation: Reservation): Observable<any> {
-    return this.http.put(`${this.baseUrl}/reservations/${reservationId}`, updatedReservation);
+  // Supprime une réservation par son ID
+  deleteReservation(reservationId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/reservations/${reservationId}`);
   }
+
+  // Met à jour les places disponibles pour une session
+  updateSeatsAvailable(sessionId: number, decrementBy: number = 1): Observable<null> {
+    return this.http.get<{ seatsAvailable: number }>(`${this.baseUrl}/sessions/${sessionId}`).pipe(
+      switchMap((session) => {
+        const updatedSeats = session.seatsAvailable - decrementBy;
+        if (updatedSeats < 0) {
+          throw new Error('Plus de sièges disponibles.');
+        }
+        return this.http.patch<void>(`${this.baseUrl}/sessions/${sessionId}`, {
+          seatsAvailable: updatedSeats,
+        });
+      }),
+      map(() => null)
+    );
+  }
+
 }

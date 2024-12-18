@@ -46,56 +46,56 @@
       "movieId": 1,
       "date": "2024-12-01",
       "time": "18:00",
-      "seatsAvailable": 20
+      "seatsAvailable": 50
     },
     {
       "id": 2,
       "movieId": 1,
       "date": "2024-12-02",
       "time": "20:30",
-      "seatsAvailable": 15
+      "seatsAvailable": 50
     },
     {
       "id": 3,
       "movieId": 2,
       "date": "2024-12-01",
       "time": "19:00",
-      "seatsAvailable": 30
+      "seatsAvailable": 50
     },
     {
       "id": 4,
       "movieId": 2,
       "date": "2024-12-02",
       "time": "17:30",
-      "seatsAvailable": 40
+      "seatsAvailable": 50
     },
     {
       "id": 5,
       "movieId": 3,
       "date": "2024-12-04",
       "time": "19:00",
-      "seatsAvailable": 35
+      "seatsAvailable": 50
     },
     {
       "id": 6,
       "movieId": 3,
       "date": "2024-12-04",
       "time": "19:00",
-      "seatsAvailable": 35
+      "seatsAvailable": 50
     },
     {
       "id": 7,
       "movieId": 4,
       "date": "2024-12-01",
       "time": "16:00",
-      "seatsAvailable": 10
+      "seatsAvailable": 50
     },
     {
       "id": 8,
       "movieId": 4,
       "date": "2024-12-05",
       "time": "20:00",
-      "seatsAvailable": 8
+      "seatsAvailable": 50
     },
     {
       "id": 9,
@@ -109,63 +109,8 @@
       "movieId": 5,
       "date": "2024-12-06",
       "time": "21:30",
-      "seatsAvailable": 45
+      "seatsAvailable": 50
     }
   ],
-  "reservations": [
-    {
-      "userId": 1,
-      "sessionId": 1,
-      "seatNumber": 2,
-      "id": 1
-    },
-    {
-      "userId": 1,
-      "sessionId": 1,
-      "seatNumber": 11,
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "sessionId": 6,
-      "seatNumber": 13,
-      "id": 13
-    },
-    {
-      "userId": 2,
-      "sessionId": 1,
-      "seatNumber": 1,
-      "id": 14
-    },
-    {
-      "userId": 2,
-      "sessionId": 1,
-      "seatNumber": 41,
-      "id": 15
-    },
-    {
-      "userId": 2,
-      "sessionId": 1,
-      "seatNumber": 33,
-      "id": 16
-    },
-    {
-      "userId": 2,
-      "sessionId": 1,
-      "seatNumber": 34,
-      "id": 17
-    },
-    {
-      "userId": 2,
-      "sessionId": 1,
-      "seatNumber": 35,
-      "id": 18
-    },
-    {
-      "userId": 2,
-      "sessionId": 9,
-      "seatNumber": 43,
-      "id": 19
-    }
-  ]
+  "reservations": []
 }

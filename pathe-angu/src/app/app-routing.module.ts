@@ -6,6 +6,7 @@ import { HomeComponent } from './homepage/homepage.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { MyReservationsComponent } from './my-reservations/my-reservations.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'movies', component: MoviesComponent },
   { path: 'movies/:id', component: MovieDetailsComponent },
   { path: 'sessions/:id', component: ReservationComponent },
+  { path: 'myreservations', component: MyReservationsComponent },
 ];
 
 @NgModule({

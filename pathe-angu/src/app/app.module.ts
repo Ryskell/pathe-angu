@@ -12,9 +12,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MoviesComponent } from './movies/movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { MyReservationsComponent } from './my-reservations/my-reservations.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent, HomeComponent, NavbarComponent, MoviesComponent, MovieDetailsComponent, ReservationComponent],
+  declarations: [AppComponent, LoginComponent, RegisterComponent, HomeComponent, NavbarComponent, MoviesComponent, MovieDetailsComponent, ReservationComponent, MyReservationsComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
