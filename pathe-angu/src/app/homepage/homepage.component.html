@@ -1,3 +1,36 @@
 <app-navbar></app-navbar>
-<h1>Bienvenue, {{ pseudo }}</h1>
-<p>homepage works!</p>
+<section class="hero is-info is-fullheight">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="title">Bienvenue sur PathéCiné</h1>
+      <h2 class="subtitle">
+        Réservez vos places et plongez dans une expérience cinématographique exceptionnelle.
+      </h2>
+      <a routerLink="/movies" class="button is-primary reservation-button">
+        Réserver maintenant
+      </a>
+    </div>
+
+    <div class="slider">
+      <div class="slider-viewport">
+        <div class="slider-content" [style.transform]="'translateX(-' + (currentImage - 1) * 100 + '%)'">
+          <div class="slider-item">
+            <img src="assets/img/poster_DarkKnight.jpg" alt="Batman">
+          </div>
+          <div class="slider-item">
+            <img src="assets/img/poster_ch'tis.jpg" alt="Les Ch'tis">
+          </div>
+          <div class="slider-item">
+            <img src="assets/img/poster_interstellar.jpg" alt="Interstellar">
+          </div>
+        </div>
+      </div>
+      <div class="slider-nav">
+        <button *ngFor="let img of images; let i = index" (click)="navigateTo(i + 1)"
+          [class.active]="currentImage === i + 1">
+        </button>
+      </div>
+    </div>
+    <h5>Film à l'affiche </h5>
+  </div>
+</section>

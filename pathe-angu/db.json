@@ -11,6 +11,12 @@
       "password": "blabla",
       "pseudo": "blabla",
       "id": 2
+    },
+    {
+      "email": "oui@test.fr",
+      "password": "oui",
+      "pseudo": "oui",
+      "id": 841
     }
   ],
   "movies": [
@@ -46,7 +52,7 @@
       "movieId": 1,
       "date": "2024-12-01",
       "time": "18:00",
-      "seatsAvailable": 50
+      "seatsAvailable": 49
     },
     {
       "id": 2,
@@ -112,5 +118,12 @@
       "seatsAvailable": 50
     }
   ],
-  "reservations": []
+  "reservations": [
+    {
+      "userId": 1,
+      "sessionId": 1,
+      "seatNumber": 14,
+      "id": 1
+    }
+  ]
 }

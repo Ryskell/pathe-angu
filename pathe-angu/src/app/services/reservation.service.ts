@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { map, Observable, switchMap } from 'rxjs';
 
 export interface Reservation {
-  id?: number; // Identifiant de la réservation
-  userId: number; // Identifiant de l'utilisateur
-  sessionId: number; // Identifiant de la session
-  seatNumber: number; // Numéro de siège réservé
+  id?: number;
+  userId: number;
+  sessionId: number;
+  seatNumber: number;
 }
 
 @Injectable({

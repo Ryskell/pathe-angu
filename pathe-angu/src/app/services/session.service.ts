@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 export interface Session {
   id: number;
-  movieId: number; // Lien avec le film
+  movieId: number;
   date: string;
   time: string;
   seatsAvailable: number;

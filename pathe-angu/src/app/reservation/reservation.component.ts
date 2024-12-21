@@ -20,8 +20,8 @@ export class ReservationComponent implements OnInit {
   sessionId!: number;
   selectedSeats: Seat[] = [];
   reservedSeats: Seat[] = [];
-  cols: number[] = Array(10).fill(0); // Exemple de 10 colonnes
-  rows: number[] = Array(5).fill(0);  // Exemple de 5 rangées
+  cols: number[] = Array(10).fill(0);
+  rows: number[] = Array(5).fill(0);
 
   constructor(
     private reservationService: ReservationService,
@@ -33,7 +33,6 @@ export class ReservationComponent implements OnInit {
   ngOnInit(): void {
     this.sessionId = Number(this.route.snapshot.paramMap.get('id'));
 
-    // Récupérer les réservations pour la session
     this.reservationService.getReservationsBySession(this.sessionId).subscribe({
       next: (data: Reservation[]) => {
         this.reservations = data;
@@ -80,15 +79,13 @@ export class ReservationComponent implements OnInit {
       return;
     }
 
-    // Préparer les données pour chaque siège sélectionné
     const selectedSeatData = this.selectedSeats.map((seat: Seat) => ({
       userId: Number(userId),
       sessionId: this.sessionId,
       seatNumber: this.getSeatNumber(seat.row, seat.col),
     }));
 
-    // Chaîner les requêtes d'ajout de réservation et de mise à jour des places
-    let observableChain = of(null); // Initialisé avec un Observable<null>
+    let observableChain = of(null);
 
     selectedSeatData.forEach((seat) => {
       observableChain = observableChain.pipe(
@@ -102,7 +99,6 @@ export class ReservationComponent implements OnInit {
       );
     });
 
-    // Exécuter la chaîne d'observables
     observableChain.subscribe({
       next: () => console.log('Toutes les réservations et mises à jour sont terminées.'),
       error: (err) => console.error('Une erreur est survenue:', err),

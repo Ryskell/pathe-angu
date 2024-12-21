@@ -1,4 +1,3 @@
-/* Conteneur principal */
 .reservations-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -7,27 +6,23 @@
   background-color: #000;
 }
 
-/* Titre */
 .reservations-container h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
 }
 
-/* Aucune réservation */
 .no-reservations {
   text-align: center;
   font-size: 1.2rem;
   color: #ccc;
 }
 
-/* Liste des cartes */
 .reservations-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-/* Carte individuelle */
 .reservation-card {
   background-color: #fff;
   color: #000;
@@ -38,13 +33,11 @@
   min-width: 300px;
 }
 
-/* Titre de la carte */
 .reservation-card h3 {
   margin: 0 0 10px;
   font-size: 1.5rem;
 }
 
-/* Boutons pour annuler */
 .seat-buttons {
   display: flex;
   flex-direction: column;

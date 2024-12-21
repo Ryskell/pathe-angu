@@ -6,13 +6,11 @@
     <p>Aucune réservation trouvée.</p>
   </div>
 
-  <!-- Liste des réservations groupées par session -->
   <div *ngIf="groupedReservations.length > 0" class="reservations-list">
     <div *ngFor="let group of groupedReservations" class="reservation-card">
       <h3>Session : {{ group.sessionId }}</h3>
       <p>Numéros de sièges : {{ group.seats.join(', ') }}</p>
 
-      <!-- Boutons individuels pour chaque siège -->
       <div class="seat-buttons">
         <button *ngFor="let seat of group.seats" class="cancel-btn"
           (click)="cancelReservationBySeat(group.sessionId, seat)">

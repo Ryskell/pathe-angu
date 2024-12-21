@@ -1,13 +1,15 @@
-<h2>Inscription</h2>
-<form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
-  <label>Email :</label>
-  <input type="email" name="email" ngModel required />
+<div class="container">
+  <form #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+    <h2>Inscription</h2>
+    <label>Email :</label>
+    <input type="email" name="email" ngModel required />
 
-  <label>Mot de passe :</label>
-  <input type="password" name="password" ngModel required />
+    <label>Mot de passe :</label>
+    <input type="password" name="password" ngModel required />
 
-  <label>Pseudo :</label>
-  <input type="text" name="pseudo" ngModel required />
+    <label>Pseudo :</label>
+    <input type="text" name="pseudo" ngModel required />
 
-  <button type="submit">S'inscrire</button>
-</form>
+    <button type="submit">S'inscrire</button>
+  </form>
+</div>

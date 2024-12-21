@@ -25,7 +25,6 @@ export class MyReservationsComponent implements OnInit {
         console.log('Données reçues:', data);
         this.reservations = data;
 
-        // Regrouper les réservations par sessionId
         this.groupedReservations = this.groupReservationsBySession(data);
       },
       error: (err) => console.error('Erreur lors de la récupération des réservations:', err),

@@ -12,14 +12,12 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
-    // Récupérer le pseudo depuis le localStorage
     this.pseudo = localStorage.getItem('pseudo');
   }
 
   logout() {
-    // Supprimer les données du localStorage
     localStorage.removeItem('pseudo');
-    localStorage.removeItem('userId'); // Si d'autres données sont à supprimer, ajoute-les ici
+    localStorage.removeItem('userId');
     alert('Déconnexion réussie');
     this.router.navigate(['/login']);
   }

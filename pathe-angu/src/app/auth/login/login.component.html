@@ -1,8 +1,13 @@
-<h2>Connexion</h2>
-<form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
-  <label>Email:</label>
-  <input type="email" name="email" ngModel required />
-  <label>Mot de passe:</label>
-  <input type="password" name="password" ngModel required />
-  <button type="submit">Se connecter</button>
-</form>
+<div class="container">
+  <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)">
+    <h2>Connexion</h2>
+    <label>Email :</label>
+    <input type="email" name="email" ngModel required />
+    <label>Mot de passe :</label>
+    <input type="password" name="password" ngModel required />
+    <button type="submit">Se connecter</button>
+    <div class="redirect-link">
+      <a routerLink="/register">Vous n'êtes pas inscrit ?</a>
+    </div>
+  </form>
+</div>
