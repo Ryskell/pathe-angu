@@ -1,27 +1,148 @@
-# PatheAngu
+# Pathé-Angu
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+## Description
 
-## Development server
+**Pathé-Angu** est un projet Angular conçu pour gérer et afficher des informations sur les films. Il propose une interface utilisateur réactive permettant de consulter des films, réserver ses places, consulter ses réservations, et rédiger un avis
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Membres du projet
 
-## Code scaffolding
+- **Anton Hillary Nathaniel**
+- **Ho Ryan**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Fonctionnalités
 
-## Running unit tests
+- **Affichage de la liste des films** : Visualisation des films avec leurs affiches et descriptions.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Détails des films** : Affichage d'informations détaillées sur un film sélectionné.
 
-## Running end-to-end tests
+- Réserver un ou plusieurs siège pour son film
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Consulter ses réservations
 
-## Further help
+- Voir et écrire des commentaires divers
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Respect des consignes du projet Angular
+
+### Authentification
+
+- **Inscription et Connexion** : Deux formulaires distincts pour l'inscription et la connexion.
+
+### Routing
+
+- **Routes définies** :
+  - Page d'accueil
+  - page des différents films
+  - Page des détails d'un film avec transmission d'identifiant
+  - page pour réserver un siège
+  - page des reservation
+
+
+
+### Composants
+
+- **Composants multiples** :
+  - Au moins un composant par page.
+  - Composant réutilisé pour l'affichage des films.
+
+
+
+### Services
+
+-
+  - Gestion des films .
+  - Service d'authentification pour l'inscription et la connexion.
+
+### HTTP
+
+- **Backend simulé** : Utilisation de `json-server` avec trois tables :
+  - `users` : Données des utilisateurs.
+  - `movies` : Liste des films.
+  - `favorites` : Liste des favoris d'un utilisateur.
+
+### Reactive Forms et custom pipes
+
+utilisés pour rédiger divers avis a propos du cinema et de ses films
+
+###
+
+## Prérequis
+
+Avant d'exécuter le projet, assurez-vous d'avoir installé les éléments suivants :
+
+- [Node.js](https://nodejs.org/) (version 16 ou supérieure)
+- [Angular CLI](https://angular.io/cli) (version 16 ou supérieure)
+
+## Installation
+
+1. Clonez ce dépôt :
+   ```bash
+   git clone https://github.com/Ryskell/pathe-angu.git
+   ```
+2. Accédez au répertoire du projet :
+   ```bash
+   cd pathe-angu
+   ```
+3. Installez les dépendances :
+   ```bash
+   npm install
+   ```
+
+## Lancement
+
+Pour exécuter l'application en mode développement :
+
+```bash
+ng serve
+```
+
+Accédez ensuite à l'application via : [http://localhost:4200](http://localhost:4200).
+
+Pour lancer la base de données, ouvrez un autre terminal, accédez au répertoire du projet si ce n'est pas déjà fait :
+
+```bash
+cd pathe-angu
+```
+
+Puis exécutez :
+
+```bash
+node server.js
+```
+
+## Structure du projet
+
+```plaintext
+src/
+├── app/
+│   ├── components/        # Composants Angular
+│   ├── services/          # Services Angular pour la gestion des données
+│   ├── models/            # Modèles de données (typages)
+│   ├── pages/             # Pages principales de l'application
+│   ├── app.module.ts      # Module principal
+├── assets/                # Images et ressources statiques
+├── environments/          # Configurations d'environnement
+├── styles/                # Fichiers de style globaux (SCSS)
+```
+
+## Scripts disponibles
+
+- **Démarrer le serveur local** :
+  ```bash
+  ng serve
+  ```
+- **Générer un build de production** :
+  ```bash
+  ng build --prod
+  ```
+- **Exécuter les tests unitaires** :
+  ```bash
+  ng test
+  ```
+
+##
+
+##
+
+---
