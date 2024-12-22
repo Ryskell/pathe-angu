@@ -52,21 +52,21 @@
       "movieId": 1,
       "date": "2024-12-01",
       "time": "18:00",
-      "seatsAvailable": 49
+      "seatsAvailable": 47
     },
     {
       "id": 2,
       "movieId": 1,
       "date": "2024-12-02",
       "time": "20:30",
-      "seatsAvailable": 50
+      "seatsAvailable": 48
     },
     {
       "id": 3,
       "movieId": 2,
       "date": "2024-12-01",
       "time": "19:00",
-      "seatsAvailable": 50
+      "seatsAvailable": 49
     },
     {
       "id": 4,
@@ -124,6 +124,62 @@
       "sessionId": 1,
       "seatNumber": 14,
       "id": 1
+    },
+    {
+      "userId": 1,
+      "sessionId": 2,
+      "seatNumber": 41,
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "sessionId": 2,
+      "seatNumber": 42,
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "sessionId": 1,
+      "seatNumber": 1,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "sessionId": 1,
+      "seatNumber": 41,
+      "id": 7
+    },
+    {
+      "userId": 2,
+      "sessionId": 3,
+      "seatNumber": 2,
+      "id": 8
+    }
+  ],
+  "reviews": [
+    {
+      "titre": "test",
+      "rating": 4,
+      "comment": "plutot pas mal",
+      "id": 1
+    },
+    {
+      "titre": "toilette",
+      "rating": 4,
+      "comment": "les toilettes sont grandioses",
+      "id": 2
+    },
+    {
+      "titre": "popcorn",
+      "rating": 4,
+      "comment": "je conseille les sucrés au salé ",
+      "id": 3
+    },
+    {
+      "titre": "places",
+      "rating": 4,
+      "comment": "les places sont sympatoches mais sans plus",
+      "id": 7
     }
   ]
 }

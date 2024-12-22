@@ -1,0 +1,30 @@
+<div class="review-container">
+  <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="titre">Titre :</label>
+      <input id="titre" type="text" formControlName="titre" appHighlightInvalid />
+      <div *ngIf="reviewForm.get('titre')?.invalid && reviewForm.get('titre')?.touched">
+        <small>Titre obligatoire.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="rating">Note :</label>
+      <input id="rating" type="number" formControlName="rating" appHighlightInvalid />
+      <div *ngIf="reviewForm.get('rating')?.invalid && reviewForm.get('rating')?.touched">
+        <small>La note doit être comprise entre 1 et 5.</small>
+      </div>
+      <p style="color: black;">Note en texte : {{ reviewForm.get('rating')?.value | ratingText }}</p>
+    </div>
+
+    <div>
+      <label for="comment">Commentaire :</label>
+      <textarea id="comment" formControlName="comment" appHighlightInvalid></textarea>
+      <div *ngIf="reviewForm.get('comment')?.invalid && reviewForm.get('comment')?.touched">
+        <small>Le commentaire est obligatoire et doit contenir au moins 10 caractères.</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="reviewForm.invalid">Soumettre</button>
+  </form>
+</div>

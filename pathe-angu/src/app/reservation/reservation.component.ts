@@ -103,8 +103,8 @@ export class ReservationComponent implements OnInit {
       next: () => console.log('Toutes les réservations et mises à jour sont terminées.'),
       error: (err) => console.error('Une erreur est survenue:', err),
       complete: () => {
-        console.log('Redirection vers la page d\'accueil.');
-        this.router.navigate(['/home']);
+        console.log('Redirection vers la page des réservations.');
+        this.router.navigate(['/myreservations']);
       }
     });
   }

@@ -34,3 +34,31 @@
     <h5>Film à l'affiche </h5>
   </div>
 </section>
+
+<div class="review-button-container" style="text-align: center;">
+  <button class="button is-primary" (click)="openModal()">Donnez votre avis</button>
+</div>
+
+<div class="modal" [ngClass]="{'is-active': isModalActive}">
+  <div class="modal-background" (click)="closeModal()"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <h2>Donnez votre avis sur notre cinéma</h2>
+    </header>
+    <section class="modal-card-body">
+      <app-cinema-review (reviewAdded)="loadReviews()"></app-cinema-review>
+    </section>
+  </div>
+</div>
+
+<div class="review-list-container">
+  <h3 class="title is-4" *ngIf="reviews.length > 0">Avis des utilisateurs :</h3>
+  <div class="reviews-grid" *ngIf="reviews.length > 0">
+    <div *ngFor="let review of reviews" class="review-card">
+      <h4 class="review-title">{{ review.titre }}</h4>
+      <p class="review-rating"><strong>Note :</strong> {{ review.rating }}/5</p>
+      <p class="review-comment"><strong>Commentaire :</strong> {{ review.comment }}</p>
+    </div>
+  </div>
+  <p *ngIf="reviews.length === 0" class="no-reviews">Aucun avis pour le moment.</p>
+</div>

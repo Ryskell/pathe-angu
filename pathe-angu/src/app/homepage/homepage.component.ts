@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ReviewService, Review } from '../services/review.service';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     'https://musicart.xboxlive.com/7/912b1000-0000-0000-0000-000000000002/504/image.jpg?w=1920&h=1080',
     'https://m.media-amazon.com/images/I/912AErFSBHL._AC_UF1000,1000_QL80_.jpg'
   ];
+  isModalActive: boolean = false;
+  reviews: Review[] = [];
+  constructor(private reviewService: ReviewService) { }
 
   ngOnInit(): void {
     this.startImageInterval();
+    this.loadReviews();
   }
 
   ngOnDestroy(): void {
@@ -38,5 +43,26 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   navigateTo(index: number): void {
     this.currentImage = index;
+  }
+
+
+  openModal() {
+    this.isModalActive = true;
+  }
+
+  closeModal() {
+    this.isModalActive = false;
+  }
+
+  loadReviews(): void {
+    this.reviewService.getReviews().subscribe(
+      (reviews) => {
+        this.reviews = reviews;
+      },
+      (error) => {
+        console.error('Erreur lors du chargement des commentaires :', error);
+      }
+    );
+    this.closeModal();
   }
 }
